@@ -1,43 +1,74 @@
-# Ex.No2
-## Ex.Name: Write a C++ program to allocate memory dynamically for a long integer variable.
-## Date:
-
+# Ex.No:2
+# Ex.Name:Write A CPP Program to create class RectangleBox and calculate the volume of the rectangleBoxe use of static member variable in the class RectangleBox.
+## Date:08/09/2025
 ## Aim:
-To demonstrate dynamic memory allocation for a long integer using `new`.
+To write A CPP Program to create class Rectangle and calculate the volume of the rectangle, make use of static member variable in the class Rectangle.
+
 
 ## Algorithm:
-1. Start the program.  
-2. Declare a pointer to a long integer.  
-3. Allocate memory dynamically using `new long`.  
-4. Read value from user and store in allocated memory.  
-5. Display the stored value.  
-6. Delete the allocated memory.  
-7. End the program.  
+1. Start
+2. Define a class Rectangle with data members length and breadth, and a static data member count.
+3. Create a constructor to initialize length and breadth and increment count whenever a new object is created.
+4. Define a function to calculate area as length × breadth.
+5. Define a function to calculate volume as length × breadth × height.
+6. Define a static function to return the value of count.
+7. In main, create Rectangle objects, calculate and display their area and volume, and display the total number of objects created using the static member.
+8. End
+
+
 
 ## Program:
-```cpp
+```
 #include <iostream>
+ 
 using namespace std;
 
-int main() {
-    long *p_var = new long;
-    long val;
-    while (cin >> val) {
-        *p_var = val;
-        cout << "Long Value is : " << *p_var << endl;
-    }
-    delete p_var;
-    return 0;
+class Square {
+    public:
+        static int count;
+      
+      // Constructor definition
+      Square(double l,double b,double h) 
+      {
+          cout<<"Constructor called."<<endl;
+          length = l;
+          breadth = b;
+          height = h;
+          count++;
+      }
+      double Volume() 
+      {
+        return length*breadth*height;
+      }
+      
+   private:
+      double length;     // Length of a box
+      double breadth;    // Breadth of a box
+      double height;     // Height of a box
+};
+int Square::count;
+int main(void) 
+{
+    double l,b,h;
+    cin>>l>>b>>h;
+   Square obj1(l,b,h);
+   cout<<"Volume :"<<obj1.Volume()<<endl;
+   cin>>l>>b>>h;
+   Square obj2(l,b,h);
+   cout<<"Volume :"<<obj2.Volume()<<endl;
+   cout<<"Total objects: "<<Square::count<<endl;
+   return 0;
 }
 ```
 
+
+
 ## Output:
-<img width="1191" height="321" alt="image" src="https://github.com/user-attachments/assets/a6870834-a333-40aa-bb9a-a04f0e717da7" />
+<img width="1188" height="437" alt="Screenshot 2025-09-08 111802" src="https://github.com/user-attachments/assets/e7c2e7af-5523-471c-8db0-7d863e83c1ac" />
+
+
+
 
 ## Result:
-```
-10
-Long Value is : 10
-20
-Long Value is : 20
-```
+The program successfully created class Rectangle and calculate the volume of the rectangle, make use of static member variable in the class Rectangle.
+
